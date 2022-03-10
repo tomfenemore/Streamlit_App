@@ -11,9 +11,10 @@ import seecrets
 pio.templates.default = 'plotly_dark'
 df = pd.read_pickle('pic')
 df.set_index('ID', inplace=True)
-dic = df['Wind'].value_counts()
+df = df[df['Wind'] == '12-15knts']
+dic = df['Direction'].value_counts()
 #cols = df.columns
-fig = px.line_polar(theta=dic.index, r=dic, line_close=True)
+fig = px.line_polar(df, theta=df['Direction'].value_counts().index, r=df['Direction'].value_counts(), line_close=True )
 fig.update_layout(plot_bgcolor='rgba(0, 0, 0, 0)', paper_bgcolor='rgba(0, 0, 0, 0)')
 app = dash.Dash( __name__, external_stylesheets=[dbc.themes.DARKLY])
 

@@ -1,4 +1,6 @@
 from trello import TrelloClient
+import sys
+sys.path.insert(1, '/Users/tomfenemore/PycharmProjects/pythonProject1')
 import seecrets
 import pandas as pd
 
@@ -20,7 +22,7 @@ def board():
         labs = card.labels
         dct = {'ID': card.id, 'Wind': li, 'Venue': labs[0].name, 'Direction': card.description, 'Notes': card.comments}
         dff = dff.append(dct,  ignore_index=True)
-    dff.to_pickle('pic')
+    dff.to_pickle('code/pic')
     return dff
 
 
