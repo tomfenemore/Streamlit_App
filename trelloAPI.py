@@ -18,9 +18,15 @@ def board():
     #print(df)
     for card in cards:
         l = card.get_list()
-        li=l.name
+        li = l.name
         labs = card.labels
-        dct = {'ID': card.id, 'Wind': li, 'Venue': labs[0].name, 'Direction': card.description, 'Notes': card.comments}
+        try:
+            lab = str(labs[0])
+        except:
+            lab = ''
+        lab = lab[6:-1]
+        print(lab)
+        dct = {'ID': card.id, 'Venue': lab, 'Wind': li,  'Direction': card.description}  # , 'Notes': card.comments
         dff = dff.append(dct,  ignore_index=True)
     dff.to_pickle('code/pic')
     return dff

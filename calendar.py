@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from plotly_calplot import calplot
 
-def cal(df):
+def cal():
     dummy_start_date = "2019-01-01"
     dummy_end_date = "2021-10-03"
 
@@ -16,11 +16,4 @@ def cal(df):
         x="ds",
         y="value"
     )
-    fig.show()
-
-
-if __name__ == '__main__':
-    cal(1)
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    return fig
