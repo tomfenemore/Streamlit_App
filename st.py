@@ -1,8 +1,6 @@
 import streamlit as st
-import trelloAPI as tr
 import pandas as pd
 import plotly.express as px
-import calendar
 import datetime
 
 df = pd.read_pickle('data')
